@@ -1,0 +1,817 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.9.0 on linux)" generated="20201116 12:19:41.169" rpa="false">
+<suite id="s1" name="Crfui" source="/usr/src/project/crfui/TestCases/Login/crfui.robot">
+<test id="s1-t1" name="Test Landing Page">
+<kw name="Landing Page Launch" library="LaunchPage">
+<arguments>
+<arg>${BROWSER}</arg>
+<arg>${URL}</arg>
+<arg>${match_landing_Success}</arg>
+</arguments>
+<kw name="Launch Browser" library="BrowserSettings">
+<doc>Launch a Browser , Arguments chrome = safari or chrome or firefox , http://192.168.1.36:8080</doc>
+<arguments>
+<arg>${browser}</arg>
+<arg>${url}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${browser}"=="safari"</arg>
+<arg>Open Safari</arg>
+<arg>${url}</arg>
+</arguments>
+<status status="PASS" starttime="20201116 12:19:41.432" endtime="20201116 12:19:41.432"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${browser}"=="chrome"</arg>
+<arg>Open Chrome</arg>
+<arg>${url}</arg>
+</arguments>
+<kw name="Open Chrome" library="BrowserSettings">
+<doc>Headless(no browser Chrome GUI) RUN for DOCKER</doc>
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys,selenium.webdriver</arg>
+</arguments>
+<assign>
+<var>${chrome_options}</var>
+</assign>
+<msg timestamp="20201116 12:19:41.434" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7f15be4970d0&gt;</msg>
+<status status="PASS" starttime="20201116 12:19:41.434" endtime="20201116 12:19:41.434"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-extensions</arg>
+</arguments>
+<status status="PASS" starttime="20201116 12:19:41.434" endtime="20201116 12:19:41.435"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+</arguments>
+<status status="PASS" starttime="20201116 12:19:41.435" endtime="20201116 12:19:41.435"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-gpu</arg>
+</arguments>
+<status status="PASS" starttime="20201116 12:19:41.435" endtime="20201116 12:19:41.436"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+</arguments>
+<status status="PASS" starttime="20201116 12:19:41.436" endtime="20201116 12:19:41.436"></status>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<arguments>
+<arg>Chrome</arg>
+<arg>chrome_options=${chrome_options}</arg>
+</arguments>
+<msg timestamp="20201116 12:19:41.437" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20201116 12:19:41.436" endtime="20201116 12:19:42.719"></status>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<arguments>
+<arg>1024</arg>
+<arg>768</arg>
+</arguments>
+<status status="PASS" starttime="20201116 12:19:42.719" endtime="20201116 12:19:42.835"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<msg timestamp="20201116 12:19:42.836" level="INFO">Opening url 'http://192.168.1.36:8080'</msg>
+<status status="PASS" starttime="20201116 12:19:42.835" endtime="20201116 12:19:42.957"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:41.433" endtime="20201116 12:19:42.958"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:41.433" endtime="20201116 12:19:42.958"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${browser}"=="firefox"</arg>
+<arg>Open Firefox</arg>
+<arg>${url}</arg>
+</arguments>
+<status status="PASS" starttime="20201116 12:19:42.958" endtime="20201116 12:19:42.959"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:41.431" endtime="20201116 12:19:42.959"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>${textMatch}</arg>
+</arguments>
+<status status="PASS" starttime="20201116 12:19:42.959" endtime="20201116 12:19:43.012"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:41.430" endtime="20201116 12:19:43.013"></status>
+</kw>
+<doc>Test login page</doc>
+<tags>
+<tag>Launch</tag>
+</tags>
+<status status="PASS" starttime="20201116 12:19:41.429" endtime="20201116 12:19:43.015" critical="yes"></status>
+</test>
+<test id="s1-t2" name="All Login Case">
+<kw name="Landing Page Launch" library="LaunchPage">
+<arguments>
+<arg>${BROWSER}</arg>
+<arg>${URL}</arg>
+<arg>${match_landing_Success}</arg>
+</arguments>
+<kw name="Launch Browser" library="BrowserSettings">
+<doc>Launch a Browser , Arguments chrome = safari or chrome or firefox , http://192.168.1.36:8080</doc>
+<arguments>
+<arg>${browser}</arg>
+<arg>${url}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${browser}"=="safari"</arg>
+<arg>Open Safari</arg>
+<arg>${url}</arg>
+</arguments>
+<status status="PASS" starttime="20201116 12:19:43.029" endtime="20201116 12:19:43.030"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${browser}"=="chrome"</arg>
+<arg>Open Chrome</arg>
+<arg>${url}</arg>
+</arguments>
+<kw name="Open Chrome" library="BrowserSettings">
+<doc>Headless(no browser Chrome GUI) RUN for DOCKER</doc>
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys,selenium.webdriver</arg>
+</arguments>
+<assign>
+<var>${chrome_options}</var>
+</assign>
+<msg timestamp="20201116 12:19:43.038" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7f15be44ddf0&gt;</msg>
+<status status="PASS" starttime="20201116 12:19:43.035" endtime="20201116 12:19:43.038"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-extensions</arg>
+</arguments>
+<status status="PASS" starttime="20201116 12:19:43.039" endtime="20201116 12:19:43.040"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+</arguments>
+<status status="PASS" starttime="20201116 12:19:43.041" endtime="20201116 12:19:43.043"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-gpu</arg>
+</arguments>
+<status status="PASS" starttime="20201116 12:19:43.044" endtime="20201116 12:19:43.045"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+</arguments>
+<status status="PASS" starttime="20201116 12:19:43.045" endtime="20201116 12:19:43.047"></status>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<arguments>
+<arg>Chrome</arg>
+<arg>chrome_options=${chrome_options}</arg>
+</arguments>
+<msg timestamp="20201116 12:19:43.049" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20201116 12:19:43.048" endtime="20201116 12:19:44.336"></status>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<arguments>
+<arg>1024</arg>
+<arg>768</arg>
+</arguments>
+<status status="PASS" starttime="20201116 12:19:44.336" endtime="20201116 12:19:44.452"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<msg timestamp="20201116 12:19:44.453" level="INFO">Opening url 'http://192.168.1.36:8080'</msg>
+<status status="PASS" starttime="20201116 12:19:44.452" endtime="20201116 12:19:44.585"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:43.032" endtime="20201116 12:19:44.585"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:43.031" endtime="20201116 12:19:44.585"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${browser}"=="firefox"</arg>
+<arg>Open Firefox</arg>
+<arg>${url}</arg>
+</arguments>
+<status status="PASS" starttime="20201116 12:19:44.585" endtime="20201116 12:19:44.586"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:43.025" endtime="20201116 12:19:44.586"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>${textMatch}</arg>
+</arguments>
+<status status="PASS" starttime="20201116 12:19:44.587" endtime="20201116 12:19:44.616"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:43.023" endtime="20201116 12:19:44.616"></status>
+</kw>
+<kw name="Login Page Launch" library="LaunchPage">
+<arguments>
+<arg>${Global_match_loginForm}</arg>
+</arguments>
+<kw name="Login Link" library="Login">
+<arguments>
+<arg>${Global_match_loginForm}</arg>
+</arguments>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${login_Href}</arg>
+</arguments>
+<msg timestamp="20201116 12:19:44.618" level="INFO">Clicking link 'xpath://a[text()='Log In']'.</msg>
+<status status="PASS" starttime="20201116 12:19:44.618" endtime="20201116 12:19:44.779"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>${match_loginForm}</arg>
+</arguments>
+<status status="PASS" starttime="20201116 12:19:44.779" endtime="20201116 12:19:44.808"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:44.617" endtime="20201116 12:19:44.809"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:44.617" endtime="20201116 12:19:44.809"></status>
+</kw>
+<kw name="Login Multiple" library="TestLogin">
+<tags>
+<tag>LoginMultiple</tag>
+</tags>
+<arguments>
+<arg>${filepath}</arg>
+</arguments>
+<kw name="Get CSV data" library="DataReader">
+<arguments>
+<arg>${filepath}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<kw name="Read Csv File" library="CsvReader">
+<arguments>
+<arg>${filePath}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20201116 12:19:44.817" level="INFO">/usr/src/project/crfui
+/usr/src/project/crfui/Data/loginids.csv</msg>
+<msg timestamp="20201116 12:19:44.817" level="INFO">${data} = [['test', 'test', 'valid', 'User Information', 'Valid'], ['test', '0', 'invalid', 'You provided incorrect login details', 'InvalidPassword'], ['0', 'test', 'invalid', 'You provided incorrect login det...</msg>
+<status status="PASS" starttime="20201116 12:19:44.811" endtime="20201116 12:19:44.817"></status>
+</kw>
+<msg timestamp="20201116 12:19:44.818" level="INFO">${data} = [['test', 'test', 'valid', 'User Information', 'Valid'], ['test', '0', 'invalid', 'You provided incorrect login details', 'InvalidPassword'], ['0', 'test', 'invalid', 'You provided incorrect login det...</msg>
+<status status="PASS" starttime="20201116 12:19:44.810" endtime="20201116 12:19:44.818"></status>
+</kw>
+<kw name="${row} IN [ @{data} ]" type="for">
+<kw name="${row} = ['test', 'test', 'valid', 'User Information', 'Valid']" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${row}[2]"=="valid"</arg>
+<arg>Valid Login</arg>
+<arg>${row}</arg>
+<arg>ELSE</arg>
+<arg>Invalid Login</arg>
+<arg>${row}</arg>
+</arguments>
+<kw name="Valid Login" library="TestLogin">
+<tags>
+<tag>ValidLogin</tag>
+</tags>
+<arguments>
+<arg>${row}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${row}[0]</arg>
+</arguments>
+<msg timestamp="20201116 12:19:44.821" level="INFO">test</msg>
+<status status="PASS" starttime="20201116 12:19:44.820" endtime="20201116 12:19:44.822"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${row}[1]</arg>
+</arguments>
+<msg timestamp="20201116 12:19:44.823" level="INFO">test</msg>
+<status status="PASS" starttime="20201116 12:19:44.822" endtime="20201116 12:19:44.823"></status>
+</kw>
+<kw name="Enter Credentials" library="Login">
+<arguments>
+<arg>${row}[0]</arg>
+<arg>${row}[1]</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${username_InputBox}</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20201116 12:19:44.824" level="INFO">Typing text 'test' into text field 'xpath://input[@id="username"]'.</msg>
+<status status="PASS" starttime="20201116 12:19:44.824" endtime="20201116 12:19:45.007"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${password_InputBox}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20201116 12:19:45.008" level="INFO">Typing text 'test' into text field 'xpath://input[@id="password"]'.</msg>
+<status status="PASS" starttime="20201116 12:19:45.008" endtime="20201116 12:19:45.183"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:44.823" endtime="20201116 12:19:45.183"></status>
+</kw>
+<kw name="Login Submit" library="Login">
+<arguments>
+<arg>${row}[2]</arg>
+<arg>${row}[3]</arg>
+</arguments>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${login_Button}</arg>
+</arguments>
+<msg timestamp="20201116 12:19:45.185" level="INFO">Clicking button 'xpath://input[@value="Log In"]'.</msg>
+<status status="PASS" starttime="20201116 12:19:45.185" endtime="20201116 12:19:45.438"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>${validInvalid_text}</arg>
+</arguments>
+<status status="PASS" starttime="20201116 12:19:45.438" endtime="20201116 12:19:45.464"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20201116 12:19:45.586" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-17.png"&gt;&lt;img src="selenium-screenshot-17.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201116 12:19:45.464" endtime="20201116 12:19:45.586"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:45.184" endtime="20201116 12:19:45.587"></status>
+</kw>
+<kw name="Logout Link" library="Login">
+<arguments>
+<arg>${match_landing_Success}</arg>
+</arguments>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${logout_Href}</arg>
+</arguments>
+<msg timestamp="20201116 12:19:45.588" level="INFO">Clicking link 'xpath://a[text()='Log Out']'.</msg>
+<status status="PASS" starttime="20201116 12:19:45.588" endtime="20201116 12:19:45.737"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>${match_landing_Success}</arg>
+</arguments>
+<status status="PASS" starttime="20201116 12:19:45.737" endtime="20201116 12:19:45.754"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:45.587" endtime="20201116 12:19:45.754"></status>
+</kw>
+<kw name="Login Link" library="Login">
+<arguments>
+<arg>${Global_match_loginForm}</arg>
+</arguments>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${login_Href}</arg>
+</arguments>
+<msg timestamp="20201116 12:19:45.755" level="INFO">Clicking link 'xpath://a[text()='Log In']'.</msg>
+<status status="PASS" starttime="20201116 12:19:45.755" endtime="20201116 12:19:45.877"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>${match_loginForm}</arg>
+</arguments>
+<status status="PASS" starttime="20201116 12:19:45.878" endtime="20201116 12:19:45.893"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:45.754" endtime="20201116 12:19:45.894"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:44.819" endtime="20201116 12:19:45.894"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:44.818" endtime="20201116 12:19:45.894"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3</arg>
+</arguments>
+<msg timestamp="20201116 12:19:48.895" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20201116 12:19:45.894" endtime="20201116 12:19:48.896"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:44.818" endtime="20201116 12:19:48.896"></status>
+</kw>
+<kw name="${row} = ['test', '0', 'invalid', 'You provided incorrect login details', 'InvalidPassword']" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${row}[2]"=="valid"</arg>
+<arg>Valid Login</arg>
+<arg>${row}</arg>
+<arg>ELSE</arg>
+<arg>Invalid Login</arg>
+<arg>${row}</arg>
+</arguments>
+<kw name="Invalid Login" library="TestLogin">
+<tags>
+<tag>InvalidLogin</tag>
+</tags>
+<arguments>
+<arg>${row}</arg>
+</arguments>
+<kw name="Enter Credentials" library="Login">
+<arguments>
+<arg>${row}[0]</arg>
+<arg>${row}[1]</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${username_InputBox}</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20201116 12:19:48.901" level="INFO">Typing text 'test' into text field 'xpath://input[@id="username"]'.</msg>
+<status status="PASS" starttime="20201116 12:19:48.901" endtime="20201116 12:19:49.059"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${password_InputBox}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20201116 12:19:49.060" level="INFO">Typing text '0' into text field 'xpath://input[@id="password"]'.</msg>
+<status status="PASS" starttime="20201116 12:19:49.060" endtime="20201116 12:19:49.199"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:48.900" endtime="20201116 12:19:49.199"></status>
+</kw>
+<kw name="Login Submit" library="Login">
+<arguments>
+<arg>${row}[2]</arg>
+<arg>${row}[3]</arg>
+</arguments>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${login_Button}</arg>
+</arguments>
+<msg timestamp="20201116 12:19:49.200" level="INFO">Clicking button 'xpath://input[@value="Log In"]'.</msg>
+<status status="PASS" starttime="20201116 12:19:49.200" endtime="20201116 12:19:49.392"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>${validInvalid_text}</arg>
+</arguments>
+<status status="PASS" starttime="20201116 12:19:49.392" endtime="20201116 12:19:49.419"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20201116 12:19:49.508" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-18.png"&gt;&lt;img src="selenium-screenshot-18.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201116 12:19:49.419" endtime="20201116 12:19:49.508"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:49.199" endtime="20201116 12:19:49.509"></status>
+</kw>
+<kw name="Login Link" library="Login">
+<arguments>
+<arg>${Global_match_loginForm}</arg>
+</arguments>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${login_Href}</arg>
+</arguments>
+<msg timestamp="20201116 12:19:49.510" level="INFO">Clicking link 'xpath://a[text()='Log In']'.</msg>
+<status status="PASS" starttime="20201116 12:19:49.510" endtime="20201116 12:19:49.647"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>${match_loginForm}</arg>
+</arguments>
+<status status="PASS" starttime="20201116 12:19:49.648" endtime="20201116 12:19:49.666"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:49.509" endtime="20201116 12:19:49.666"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:48.898" endtime="20201116 12:19:49.666"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:48.897" endtime="20201116 12:19:49.666"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3</arg>
+</arguments>
+<msg timestamp="20201116 12:19:52.668" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20201116 12:19:49.667" endtime="20201116 12:19:52.669"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:48.896" endtime="20201116 12:19:52.670"></status>
+</kw>
+<kw name="${row} = ['0', 'test', 'invalid', 'You provided incorrect login details', 'InvalidUsername']" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${row}[2]"=="valid"</arg>
+<arg>Valid Login</arg>
+<arg>${row}</arg>
+<arg>ELSE</arg>
+<arg>Invalid Login</arg>
+<arg>${row}</arg>
+</arguments>
+<kw name="Invalid Login" library="TestLogin">
+<tags>
+<tag>InvalidLogin</tag>
+</tags>
+<arguments>
+<arg>${row}</arg>
+</arguments>
+<kw name="Enter Credentials" library="Login">
+<arguments>
+<arg>${row}[0]</arg>
+<arg>${row}[1]</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${username_InputBox}</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20201116 12:19:52.676" level="INFO">Typing text '0' into text field 'xpath://input[@id="username"]'.</msg>
+<status status="PASS" starttime="20201116 12:19:52.676" endtime="20201116 12:19:52.843"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${password_InputBox}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20201116 12:19:52.844" level="INFO">Typing text 'test' into text field 'xpath://input[@id="password"]'.</msg>
+<status status="PASS" starttime="20201116 12:19:52.843" endtime="20201116 12:19:53.009"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:52.674" endtime="20201116 12:19:53.010"></status>
+</kw>
+<kw name="Login Submit" library="Login">
+<arguments>
+<arg>${row}[2]</arg>
+<arg>${row}[3]</arg>
+</arguments>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${login_Button}</arg>
+</arguments>
+<msg timestamp="20201116 12:19:53.011" level="INFO">Clicking button 'xpath://input[@value="Log In"]'.</msg>
+<status status="PASS" starttime="20201116 12:19:53.011" endtime="20201116 12:19:53.160"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>${validInvalid_text}</arg>
+</arguments>
+<status status="PASS" starttime="20201116 12:19:53.160" endtime="20201116 12:19:53.177"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20201116 12:19:53.278" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-19.png"&gt;&lt;img src="selenium-screenshot-19.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201116 12:19:53.177" endtime="20201116 12:19:53.278"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:53.010" endtime="20201116 12:19:53.278"></status>
+</kw>
+<kw name="Login Link" library="Login">
+<arguments>
+<arg>${Global_match_loginForm}</arg>
+</arguments>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${login_Href}</arg>
+</arguments>
+<msg timestamp="20201116 12:19:53.280" level="INFO">Clicking link 'xpath://a[text()='Log In']'.</msg>
+<status status="PASS" starttime="20201116 12:19:53.279" endtime="20201116 12:19:53.397"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>${match_loginForm}</arg>
+</arguments>
+<status status="PASS" starttime="20201116 12:19:53.397" endtime="20201116 12:19:53.439"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:53.279" endtime="20201116 12:19:53.439"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:52.673" endtime="20201116 12:19:53.440"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:52.671" endtime="20201116 12:19:53.440"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3</arg>
+</arguments>
+<msg timestamp="20201116 12:19:56.441" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20201116 12:19:53.440" endtime="20201116 12:19:56.442"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:52.670" endtime="20201116 12:19:56.442"></status>
+</kw>
+<kw name="${row} = ['', '', 'invalid', 'Username', 'EmptyFields']" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${row}[2]"=="valid"</arg>
+<arg>Valid Login</arg>
+<arg>${row}</arg>
+<arg>ELSE</arg>
+<arg>Invalid Login</arg>
+<arg>${row}</arg>
+</arguments>
+<kw name="Invalid Login" library="TestLogin">
+<tags>
+<tag>InvalidLogin</tag>
+</tags>
+<arguments>
+<arg>${row}</arg>
+</arguments>
+<kw name="Enter Credentials" library="Login">
+<arguments>
+<arg>${row}[0]</arg>
+<arg>${row}[1]</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${username_InputBox}</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20201116 12:19:56.447" level="INFO">Typing text '' into text field 'xpath://input[@id="username"]'.</msg>
+<status status="PASS" starttime="20201116 12:19:56.447" endtime="20201116 12:19:56.590"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${password_InputBox}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20201116 12:19:56.591" level="INFO">Typing text '' into text field 'xpath://input[@id="password"]'.</msg>
+<status status="PASS" starttime="20201116 12:19:56.590" endtime="20201116 12:19:56.726"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:56.446" endtime="20201116 12:19:56.726"></status>
+</kw>
+<kw name="Login Submit" library="Login">
+<arguments>
+<arg>${row}[2]</arg>
+<arg>${row}[3]</arg>
+</arguments>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${login_Button}</arg>
+</arguments>
+<msg timestamp="20201116 12:19:56.728" level="INFO">Clicking button 'xpath://input[@value="Log In"]'.</msg>
+<status status="PASS" starttime="20201116 12:19:56.727" endtime="20201116 12:19:56.835"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>${validInvalid_text}</arg>
+</arguments>
+<status status="PASS" starttime="20201116 12:19:56.835" endtime="20201116 12:19:56.849"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20201116 12:19:56.964" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-20.png"&gt;&lt;img src="selenium-screenshot-20.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201116 12:19:56.850" endtime="20201116 12:19:56.965"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:56.726" endtime="20201116 12:19:56.965"></status>
+</kw>
+<kw name="Login Link" library="Login">
+<arguments>
+<arg>${Global_match_loginForm}</arg>
+</arguments>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${login_Href}</arg>
+</arguments>
+<msg timestamp="20201116 12:19:56.966" level="INFO">Clicking link 'xpath://a[text()='Log In']'.</msg>
+<status status="PASS" starttime="20201116 12:19:56.966" endtime="20201116 12:19:57.110"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>${match_loginForm}</arg>
+</arguments>
+<status status="PASS" starttime="20201116 12:19:57.110" endtime="20201116 12:19:57.125"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:56.965" endtime="20201116 12:19:57.126"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:56.445" endtime="20201116 12:19:57.126"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:56.443" endtime="20201116 12:19:57.126"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3</arg>
+</arguments>
+<msg timestamp="20201116 12:20:00.127" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20201116 12:19:57.126" endtime="20201116 12:20:00.128"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:56.443" endtime="20201116 12:20:00.128"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:44.818" endtime="20201116 12:20:00.128"></status>
+</kw>
+<status status="PASS" starttime="20201116 12:19:44.810" endtime="20201116 12:20:00.129"></status>
+</kw>
+<tags>
+<tag>Login</tag>
+</tags>
+<status status="PASS" starttime="20201116 12:19:43.020" endtime="20201116 12:20:00.129" critical="yes"></status>
+</test>
+<kw name="Close All Browsers" library="SeleniumLibrary" type="teardown">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20201116 12:20:00.133" endtime="20201116 12:20:00.248"></status>
+</kw>
+<doc>This is the root test case to run all tests</doc>
+<status status="PASS" starttime="20201116 12:19:41.171" endtime="20201116 12:20:00.249"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0">Critical Tests</stat>
+<stat pass="2" fail="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0">Launch</stat>
+<stat pass="1" fail="0">Login</stat>
+</tag>
+<suite>
+<stat pass="2" fail="0" id="s1" name="Crfui">Crfui</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

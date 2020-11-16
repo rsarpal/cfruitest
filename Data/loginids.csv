@@ -1,0 +1,4 @@
+test,test,valid,User Information,Valid
+test,0,invalid,You provided incorrect login details,InvalidPassword
+0,test,invalid,You provided incorrect login details,InvalidUsername
+,,invalid,Username,EmptyFields
