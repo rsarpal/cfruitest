@@ -6,6 +6,9 @@ Robotframework automation suite for testing login functionality of the crf appli
 
 
 ## Execution
+  - The tests directories needs to be mounted on to docker to run the tests. 
+      `docker run -ti -v <Host tests root path>:<path to mount on docker> docker/robot bash`
+      
   - Use the following command to run the tests inside the Robotframework Docker
         `robot -d results -v URL:http://<IP>:8080 TestCases/Login/crfui.robot`
   - In the command above set IP address of the crf application.
